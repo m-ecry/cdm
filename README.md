@@ -3,13 +3,13 @@ Version 221216a
 ©omr-w
 
 For Installation are needed following files:
-install.sh
-in subdirectory "cdm_files":
-- checkdir.sh
-- gotomark.sh
-- setmark.sh
-- settings
-- updateSettings.sh
+- install.sh
+- in subdirectory "cdm_files":
+  - checkdir.sh
+  - gotomark.sh
+  - setmark.sh
+  - settings
+  - updateSettings.sh
 
 Install with terminal. Open Terminal in directory, where is the install.sh file. Execute with command:
 bash install.sh
