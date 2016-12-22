@@ -2,6 +2,10 @@
 Version 221216a
 ©omr-w
 
+cdm is a tool for the terminal, that adds two new commands to the terminal in order to navigate fast between common places on the disk.
+- mark ALIAS: Marks the current directory with an ALIAS, allowing via cdm ALIAS to return to that place. If no ALIAS is given, the default marker is set. Consequently, there is allways one default marker and many other markers.  
+- cdm ALIAS: Returns to a previous marked position. If no ALIAS is given, goes to the default location, also costumizeable. By passing the option -w ALIAS one can create a workspace at the target Directory, consisting of an filemanager (default: thunar) and an editor (default: atom) 
+
 For Installation are needed following files:
 - install.sh
 - in subdirectory "cdm_files":
