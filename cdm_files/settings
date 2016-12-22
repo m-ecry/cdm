@@ -1,0 +1,12 @@
+default
+####
+Profil::default
+atom
+xfce4-terminal
+thunar
+####
+Profil::omr
+emacs
+xfce4-terminal
+thunar
+####
