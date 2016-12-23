@@ -1,10 +1,8 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
-pfad=PLACEHOLDER
+pfad=/home/paul/.utils
 pfadm="$pfad/data/mark.txt"
-pfads="$pfad/data/settings"
-profil=$(head -n 1 "$pfads")
 
 if [ -z "$1" ]; then
     ### Wenn keine Argumente beigefügt, wechsel zu default dir ###
@@ -17,28 +15,8 @@ fi
 while :
 do
     case "$1" in
-	-c | --createProfile)
-	    ### Create new profile.
-	    "$pfad/updateSettings.sh" "$2" c "$2"
-	    shift 2
-	    ;;
-	-d | --delete)
-	    ### Delete profile.
-	    shift 2
-	    ;;
-	-e | --editor)
-	    ### Set default Editor for workspace in current profile. Default: Mousepad. Editor Position in Settings: +1###
-	    "$pfad/updateSettings.sh" "$2" e "$profil"
-	    shift 2
-	    ;;
-	-fm | --filem | --filem*)
-	    ### Set default filemanager in current profile. Default: Thunar. Filemanager Position in Settings: +3 ###
-	    "$pfad/updateSettings.sh" "$2" f "$profil"
-	    shift 2
-	    ;;
 	-h | --help)
 	    ### Help him!
-
 	    return 0
 	    ;;
 	-l | --list)
@@ -52,38 +30,6 @@ do
 	    cat "$pfadm"
 	    return 0
 	    ;;
-	-p | --profile)
-	    ### Change current profile ###
-	    ## Check for valid profile ##
-	    profile=$2
-	    profiles=$(grep "Profil::" "$pfads")
-	    valid=0
-	    if [ -z "$profile" ]; then
-		profile="default"
-	    fi
-	    for p in $profiles; do
-		if [ "${p#*::*}" = "$profile" ]; then
-		    valid=1
-		    break
-		fi
-	    done
-	    if [ $valid = 0 ]; then
-		echo "No profile with this name exists!"
-		return 0
-	    fi
-	    sed -i "1d" "$pfads"
-	    sed -i "1i $profile" "$pfads"
-	    echo "Current profile set to $profile."
-	    return
-	    ;;
-	    shift 2
-	    ;;
-	-t | --terminal)
-	    ### Set default terminal in current profile. Default: xfce4-terminal. Terminal Position in Settings: +2 ###
-	    ### Edit: Actually seems like a dump idea, kept but not relevant###
-	    "$pfad/updateSettings.sh" "$2" t "$profil"
-	    shift 2
-	    ;;
 	-w | --workspace)
 	    ### cd to dir and build workspace there, consisting of editor, filemanager and terminal. ###
 	    ### check for valid marker ###
@@ -94,15 +40,8 @@ do
 		return 1
 	    else
 		cd "$check"
-      		settings=$(grep -A 3 "Profil::$profil" "$pfads")
-		tmp=()
-		for line in $settings; do
-		    tmp+=("$line")
-		done
-		tmp2="${tmp[0]}"
-		echo "Current profile set to: ${tmp2#*::*}."
-		${tmp[1]} .&
-		${tmp[3]} .&
+		$EDITOR .&
+		$FILEMANAGER .&
 	    fi
 	    shift 2
 	    ;;
