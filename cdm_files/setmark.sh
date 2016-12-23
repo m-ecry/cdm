@@ -1,9 +1,12 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
+<<<<<<< HEAD
 pfad=$HOME/.utils
+=======
+pfad=/home/paul/.utils
+>>>>>>> e336bf1... Removed profiles in favor of envars for the prefered programs launching; Added some install feedback
 pfadm="$pfad/data/mark.txt"
-pfads="$pfad/data/settings"
 
 if [ -z "$1" ]; then
     line=$(grep "default::*" "$pfadm")
@@ -11,7 +14,7 @@ if [ -z "$1" ]; then
 	echo "Current directory is allready marked as default."
 	exit
     fi
-    
+
     echo "Reset default Marker from ${line#*::*} to $PWD?"
     select yn in "Yes" "No"; do
 	case $yn in
@@ -54,5 +57,3 @@ else
     done
     echo "$1::$PWD">>"$pfadm" #~/skripte/.utils/data/mark.txt
 fi
-
-

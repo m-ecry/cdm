@@ -1,7 +1,11 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
+<<<<<<< HEAD
 pfad=$HOME/.utils
+=======
+pfad=/home/paul/.utils
+>>>>>>> e336bf1... Removed profiles in favor of envars for the prefered programs launching; Added some install feedback
 ### Set identifier to marker (first argument without "-" in front ###
 identifier=$1
 
