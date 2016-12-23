@@ -11,7 +11,7 @@ regexp="PLACEHOLDER"
 #if Kram ersetzt, da -p kürzer
 mkdir -p "$pfad/data"
 
-targetScript=(checkdir.sh gotomark.sh setmark.sh updateSettings.sh)
+targetScript=(checkdir.sh gotomark.sh setmark.sh)
 for i in $(seq 0 3); do
     cp cdm_files/${targetScript[$i]} "$pfad/${targetScript[$i]}"
     chmod +x "$pfad/${targetScript[$i]}"
