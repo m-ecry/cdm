@@ -12,7 +12,7 @@ regexp="PLACEHOLDER"
 mkdir -p "$pfad/data"
 
 targetScript=(checkdir.sh gotomark.sh setmark.sh)
-for i in $(seq 0 3); do
+for i in $(seq 0 2); do
     cp cdm_files/${targetScript[$i]} "$pfad/${targetScript[$i]}"
     chmod +x "$pfad/${targetScript[$i]}"
     echo "Copying '${targetScript[$i]}' to '$pfad/${targetScript[$i]}'"
