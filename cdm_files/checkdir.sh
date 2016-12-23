@@ -1,7 +1,9 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
+
 pfad=$HOME/.utils
+
 ### Set identifier to marker (first argument without "-" in front ###
 identifier=$1
 
@@ -14,7 +16,7 @@ marklist=$(grep :: "$pfad/data/mark.txt")
 
 for line in $marklist; do
     if [ "$identifier" = "${line%*::*}" ]; then
-	dir="${line#*::*}"	  
+	dir="${line#*::*}"
     fi
 done
 
@@ -26,4 +28,3 @@ else
     echo "$dir" #to handle passed test to main script#
     exit 0
 fi
-
