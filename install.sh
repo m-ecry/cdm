@@ -43,13 +43,13 @@ echo "alias cdm=$pfad/gotomark.sh">>"$HOME/.bash_aliases"
 echo ""
 
 if [ -z "$EDITOR" ]; then
-    printf "\033[33mNo standard filemanager set. \nPlease set envvar FILEMANAGER if you want to use -fm or -w flag like \n\n\t echo export FILEMANAGER='/usr/bin/thunar' >> $HOME/.bash_aliases\n\n\033[0m"
+    printf "\033[33mNo standard filemanager set. \nPlease set envvar FILEMANAGER if you want to use -f or -w flag like \n\n\t echo export FILEMANAGER='/usr/bin/thunar' >> $HOME/.bash_aliases\n\n\033[0m"
 else
     printf "\033[32mStandard editor is set as envvar EDITOR to $EDITOR \n\033[0m"
 fi
 
 if [ -z "$FILEMANAGER" ]; then
-    printf "\033[33mNo standard filemanager set. Please set envvar FILEMANAGER if you want to use -fm or -w flag like: \n\n\t echo export EDITOR='/usr/bin/atom' >> $HOME/.bash_aliases\n\n \033[0m"
+    printf "\033[33mNo standard filemanager set. Please set envvar FILEMANAGER if you want to use -f or -w flag like: \n\n\t echo export EDITOR='/usr/bin/atom' >> $HOME/.bash_aliases\n\n \033[0m"
     export FILEMANAGER="/usr/bin/thunar"
 else
     printf "\033[32mStandard filemanager is set as envvar FILEMANAGER to $FILEMANAGER \n\033[0m"
