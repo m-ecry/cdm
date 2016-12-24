@@ -36,8 +36,16 @@ echo "">>"$pfad/data/mark.txt"
 #muss noch geprüft werden, ob alte Version schon da
 tmp=$(grep cdm $HOME/.bash_aliases)
 if [ -z "$tmp" ]; then
-    echo "alias mark=$pfad/setmark.sh">>"$HOME/.bash_aliases"
-    echo "alias cdm=. $pfad/gotomark.sh">>"$HOME/.bash_aliases"
+    echo alias\ mark=\"$pfad/setmark.sh\">>"$HOME/.bash_aliases"
+    echo alias\ cdm=\". $pfad/gotomark.sh\">>"$HOME/.bash_aliases"
+    source $HOME/.bash_aliases
+else
+    #remove old alias
+    sed -i.bak '/cdm/d' "$HOME/.bash_aliases"
+    sed -i '/mark/d/' "$HOMA/.bash_aliases"
+
+    echo alias\ mark=\"$pfad/setmark.sh\">>"$HOME/.bash_aliases"
+    echo alias\ cdm=\". $pfad/gotomark.sh\">>"$HOME/.bash_aliases"
     source $HOME/.bash_aliases
 fi
 
