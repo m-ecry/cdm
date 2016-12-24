@@ -1,7 +1,6 @@
 #!/bin/bash
 #Version:221216a
-#©omr-w
-pfad=PLACEHOLDER
+pfad="/home/omr/skripte/.utils"
 pfadm="$pfad/data/mark.txt"
 pfads="$pfad/data/settings"
 profil=$(head -n 1 "$pfads")
@@ -50,7 +49,7 @@ do
 	    ;;
 	-la | --listall)
 	    cat "$pfadm"
-	    return 0
+	    break
 	    ;;
 	-p | --profile)
 	    ### Change current profile ###
@@ -75,8 +74,6 @@ do
 	    sed -i "1i $profile" "$pfads"
 	    echo "Current profile set to $profile."
 	    break
-	    ;;
-	    shift 2
 	    ;;
 	-t | --terminal)
 	    ### Set default terminal in current profile. Default: xfce4-terminal. Terminal Position in Settings: +2 ###
