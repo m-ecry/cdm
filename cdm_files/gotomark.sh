@@ -39,7 +39,7 @@ do
 	-h | --help)
 	    ### Help him!
 
-	    return 0
+	    break
 	    ;;
 	-l | --list)
 	    echo "Available Marks are (-la reveals linked dir):"
@@ -69,12 +69,12 @@ do
 	    done
 	    if [ $valid = 0 ]; then
 		echo "No profile with this name exists!"
-		return 0
+		break
 	    fi
 	    sed -i "1d" "$pfads"
 	    sed -i "1i $profile" "$pfads"
 	    echo "Current profile set to $profile."
-	    return
+	    break
 	    ;;
 	    shift 2
 	    ;;
@@ -91,7 +91,7 @@ do
 	    if [ -n "${check%%/*}" ]; then
 		### Print Error Message and exit ###
 		echo "$check"
-		return 1
+		break
 	    else
 		cd "$check"
       		settings=$(grep -A 3 "Profil::$profil" "$pfads")
