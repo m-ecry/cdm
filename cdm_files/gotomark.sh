@@ -100,6 +100,7 @@ do
 		echo "Current profile set to: ${tmp2#*::*}."
 		${tmp[1]} .&
 		${tmp[3]} .&
+		break
 	    fi
 	    shift 2
 	    ;;
