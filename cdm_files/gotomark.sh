@@ -1,9 +1,9 @@
 #!/bin/bash
 #Version:221216a
+#©omr-w
+
 pfad="$HOME/.utils"
 pfadm="$pfad/data/mark.txt"
-pfads="$pfad/data/settings"
-profil=$(head -n 1 "$pfads")
 
 if [ -z "$1" ]; then
     ### Wenn keine Argumente beigefügt, wechsel zu default dir ###
@@ -16,29 +16,10 @@ fi
 while :
 do
     case "$1" in
-	-c | --createProfile)
-	    ### Create new profile.
-	    "$pfad/updateSettings.sh" "$2" c "$2"
-	    shift 2
-	    ;;
-	-d | --delete)
-	    ### Delete profile.
-	    shift 2
-	    ;;
-	-e | --editor)
-	    ### Set default Editor for workspace in current profile. Default: Mousepad. Editor Position in Settings: +1###
-	    "$pfad/updateSettings.sh" "$2" e "$profil"
-	    shift 2
-	    ;;
-	-fm | --filem | --filem*)
-	    ### Set default filemanager in current profile. Default: Thunar. Filemanager Position in Settings: +3 ###
-	    "$pfad/updateSettings.sh" "$2" f "$profil"
-	    shift 2
-	    ;;
 	-h | --help)
 	    ### Help him!
-
 	    break
+	    return 0
 	    ;;
 	-l | --list)
 	    echo "Available Marks are (-la reveals linked dir):"
@@ -57,6 +38,7 @@ do
 	    cat "$pfadm"
 	    break
 	    ;;
+<<<<<<< HEAD
 	-p | --profile)
 	    ### Change current profile ###
 	    ## Check for valid profile ##
@@ -97,7 +79,7 @@ do
 		break
 	    else
 		cd "$check"
-      		settings=$(grep -A 3 "Profil::$profil" "$pfads")
+      	settings=$(grep -A 3 "Profil::$profil" "$pfads")
 		tmp=()
 		for line in $settings; do
 		    tmp+=("$line")
