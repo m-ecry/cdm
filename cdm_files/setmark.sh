@@ -1,7 +1,7 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
-pfad=PLACEHOLDER
+pfad=$HOME/.utils
 pfadm="$pfad/data/mark.txt"
 pfads="$pfad/data/settings"
 

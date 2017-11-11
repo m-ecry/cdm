@@ -1,7 +1,7 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
-pfad=PLACEHOLDER
+pfad=$HOME/.utils
 ### Set identifier to marker (first argument without "-" in front ###
 identifier=$1
 

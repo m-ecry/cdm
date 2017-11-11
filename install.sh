@@ -8,10 +8,6 @@
 pfad="$HOME/.utils"
 regexp="PLACEHOLDER"
 
-for file in $(find cdm_files/*.sh); do
-    sed -i "s%$regexp%$pfad%g" $file #*.sh #"$PWD/cdm_files/*"
-done
-
 if [ ! -d "$pfad" ]; then
     mkdir "$pfad"
     mkdir "$pfad/data"
@@ -51,6 +47,25 @@ fi
 
 #ToDo: Einstellungsdatei, geleitete Installation
 
+echo '_cdm() 
+{ 
+    local cur opt 
+    COMPREPLY=() 
+    cur="${COMP_WORDS[COMP_CWORD]}"   # das aktuell geschriebene Argument
+    pre="${COMP_WORDS[COMP_CWORD-1]}" # das vorherige Argument
 
+    # Completion of benchmark commands
+    # der erste Parameter ist das Benchmark
+    if [[ $COMP_CWORD == 1 ]]; then
+        # wenn es mehrere Benches zu Namen gibt kompletiere
+        COMPREPLY=( $(compgen -W "$(cdm -ls
+            )" "$cur" ) )
+    return 0
+    fi
+} &&
+complete -F _cdm cdm
+' >> ~/.bashrc
+
+source ~/.bashrc
 
 

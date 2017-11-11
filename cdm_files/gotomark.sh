@@ -1,6 +1,6 @@
 #!/bin/bash
 #Version:221216a
-pfad="/home/omr/skripte/.utils"
+pfad="$HOME/.utils"
 pfadm="$pfad/data/mark.txt"
 pfads="$pfad/data/settings"
 profil=$(head -n 1 "$pfads")
@@ -42,6 +42,12 @@ do
 	    ;;
 	-l | --list)
 	    echo "Available Marks are (-la reveals linked dir):"
+	    for line in $(grep -v default "$pfadm"); do
+		echo "${line%*::*}"
+	    done
+	    shift 1
+	    ;;
+	-ls | --list-silent)
 	    for line in $(grep -v default "$pfadm"); do
 		echo "${line%*::*}"
 	    done
