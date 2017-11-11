@@ -1,9 +1,9 @@
 #!/bin/bash
 #Version:221216a
-#©omr-w
-
 pfad="$HOME/.utils"
 pfadm="$pfad/data/mark.txt"
+pfads="$pfad/data/settings"
+profil=$(head -n 1 "$pfads")
 
 if [ -z "$1" ]; then
     ### Wenn keine Argumente beigefügt, wechsel zu default dir ###
@@ -38,7 +38,7 @@ do
 	-h | --help)
 	    ### Help him!
 
-		break
+	    break
 	    ;;
 	-l | --list)
 	    echo "Available Marks are (-la reveals linked dir):"
@@ -97,7 +97,7 @@ do
 		break
 	    else
 		cd "$check"
-      	settings=$(grep -A 3 "Profil::$profil" "$pfads")
+      		settings=$(grep -A 3 "Profil::$profil" "$pfads")
 		tmp=()
 		for line in $settings; do
 		    tmp+=("$line")
