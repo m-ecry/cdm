@@ -1,7 +1,7 @@
 #!/bin/bash
 #Version:221216a
 #©omr-w
-pfad=PLACEHOLDER
+pfad=$HOME/.utils
 pfads="$pfad/data/settings"
 
 #Value to change to
