@@ -57,10 +57,17 @@ if [ ! -f ~/.bash_aliases ] ; then
 Be aware to source '~/.bash_aliases' in your ~/.bashrc like this
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 echo '_cdm() 
 { 
     local cur opt 
     COMPREPLY=() 
+=======
+echo '_cdm()
+{
+    local cur opt
+    COMPREPLY=()
+>>>>>>> 5a3a937... Replaced tabs with spaces, cleaned up text
     cur="${COMP_WORDS[COMP_CWORD]}"   # das aktuell geschriebene Argument
     pre="${COMP_WORDS[COMP_CWORD-1]}" # das vorherige Argument
 
@@ -77,6 +84,7 @@ complete -F _cdm cdm
 ' >> ~/.bashrc
 
 source ~/.bashrc
+<<<<<<< HEAD
 =======
     if [ -f ~/.bash_aliases ]; then
         source ~/.bash_aliases
@@ -105,3 +113,5 @@ else
 fi
 
 source $HOME/.bash_aliases
+=======
+>>>>>>> 5a3a937... Replaced tabs with spaces, cleaned up text
