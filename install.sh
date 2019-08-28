@@ -5,8 +5,7 @@
 #.utils: checkdir.sh, gotomark.sh, setmark.sh, updateSettings.sh
 #.utils/data/: mark.txt, settings
 
-pfad="$HOME/.utils"
-regexp="PLACEHOLDER"
+pfad="$HOME/.utils/cdm"
 
 <<<<<<< HEAD
 if [ ! -d "$pfad" ]; then
@@ -20,6 +19,7 @@ fi
 mkdir -p "$pfad/data"
 >>>>>>> e336bf1... Removed profiles in favor of envars for the prefered programs launching; Added some install feedback
 
+<<<<<<< HEAD
 targetScript=(checkdir.sh gotomark.sh setmark.sh)
 for i in $(seq 0 2); do
     cp cdm_files/${targetScript[$i]} "$pfad/${targetScript[$i]}"
@@ -28,6 +28,29 @@ for i in $(seq 0 2); do
 done
 
 echo ""
+=======
+required=(checkdir.sh gotomark.sh setmark.sh updateSettings.sh)
+
+for file in ${required[*]}; do
+    if [ -z $(find "cdm_files/$file") ]; then
+        echo "$file could not be found. Abort."
+        exit
+    fi
+done
+
+cp -r "cdm_files/*" "$pfad"
+for file in ${required[*]}; do
+    chmod +x "$pfad/$file"
+done
+
+exit
+
+for i in $(seq 0 0); do
+    cp cdm_files/${targetData[$i]} "$pfad/data/${targetData[$i]}"
+done
+
+exit
+>>>>>>> 143363a... squash later, start reworking install
 echo "default::$HOME">"$pfad/data/mark.txt"
 echo "">>"$pfad/data/mark.txt"
 
